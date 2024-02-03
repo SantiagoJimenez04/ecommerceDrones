@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - La tienda del Dron</title>
+
+    <!-- BS ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- BS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- MI CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- JS -->
+    <script src="./js/productoCargar.js"></script>
+    <!-- <script defer src="./js/app.js"></script> -->
+    <script defer src="./js/checkout.js"></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="github">
+            <a href="https://github.com/SantiagoJimenez04"><i class="bi bi-github icon-github"></i></a>
+            <a class="git-nombre" href="https://github.com/SantiagoJimenez04">@SantiagoJimenez04</a>
+        </div>
+
+        <h1><a href="index.html">DroneTech Store</a></h1>
+
+
+        <div class="cart-container">
+            <a class="numerito" href="./checkout.html">
+                <i class="bi bi-cart-check-fill carrito"></i> <span class="numerito" id="numerito">0</span>
+            </a>
+        </div>
+
+    </header>
+
+    <main class="contenedor-carrito">
+
+        <div class="carrito-devolver">
+            <a class="devolver" href="index.html"><i class="bi bi-arrow-return-left devolver"></i></a>
+
+            <h2 class="titulo-carrito">Resumen de tu Compra:</h2>
+        </div>
+
+
+        <div class="contenedor carrito">
+            <p class="carrito-vacio" id="carrito-vacio">Tu carrito esta vacío. <i class="bi bi-emoji-frown"></i></p>
+
+            <div class="carrito-productos" id="carrito-productos">   
+        
+                <!-- Esto se llena desde el JS -->
+            </div>
+
+            <div class="acciones-carrito" id="acciones-carrito">
+                <div class="acciones-izquierda">
+                    <buttton class="accion-vaciar" id="accion-vaciar">Vaciar Carrito</buttton>
+                </div>
+
+                <div class="acciones-derecha">
+                    <div class="acciones-total">
+                        <p>Total: </p>
+                        <p id="total" class="total"> 0</p>
+                    </div>
+                    <button id="comprar" class="acciones-comprar">Comprar</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+        <h4>All right Reserved 2024</h4>
+
+        <div class="github">
+            <a href="https://github.com/SantiagoJimenez04"><i class="bi bi-github icon-github"></i></a>
+            <a class="git-nombre" href="https://github.com/SantiagoJimenez04">@SantiagoJimenez04</a>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
