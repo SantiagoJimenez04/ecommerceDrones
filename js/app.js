@@ -1,15 +1,17 @@
 
 //Conectamos con el HTML
-
 const contenedorProductos = document.querySelector("#contenedor-productos");
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
 let botonesAgregar = document.querySelectorAll(".agregar-producto");
 const numerito = document.querySelector("#numerito");
 
+//HTML solo para el buscador
 const inputBuscar = document.querySelector("#inputBuscar");
 const botonBuscar = document.querySelector("#botonBuscar");
 const mensajeAlerta = document.querySelector("#mensaje-alerta");
 const contenedorSpinner = document.querySelector("#cargando");
+
+
 
 // Funciones
 
@@ -26,7 +28,7 @@ function cargarProductos(productosElegidos) {
             <img class="imagen-producto" src="${producto.imagen}" alt="${producto.nombre}">
             <div class="detalles-producto">
                 <h3 class="nombre-producto">${producto.nombre}</h3>
-                <p class="precio-producto">$ ${producto.precio}</p>
+                <p class="precio-producto">$ ${producto.precio.toLocaleString("en-US")}</p>
                 <button class="agregar-producto" id="${producto.id}">Agregar al Carrito</button>
             </div>
         `;
@@ -37,7 +39,9 @@ function cargarProductos(productosElegidos) {
 cargarProductos(productos);
 
 
-// Botones de Categorias (dron,baterias,accesorios...)
+
+// Botones de Categorias (dron,baterias,accesorios... Aquí uso el .filter)
+
 botonesCategorias.forEach(boton => {
     boton.addEventListener("click", (e) => {
 
@@ -53,6 +57,7 @@ botonesCategorias.forEach(boton => {
     })
 });
 
+
 // Esta función actualiza el Boton agregar así filtre con los botones. 
 function actualizarBotonesAgregar() {
     botonesAgregar = document.querySelectorAll(".agregar-producto");
@@ -61,6 +66,7 @@ function actualizarBotonesAgregar() {
         boton.addEventListener("click", agregarAlCarrito);
     });
 }
+
 
 //Traemos la info que este guardada en localStorage
 let productosEnCarrito;
@@ -78,7 +84,6 @@ if (productosEnCarritoLS) {
 
 //Función para agregar al Carrito
 function agregarAlCarrito(e) {
-
     const idBoton = e.currentTarget.id;
     const productoAgregado = productos.find(producto => producto.id === idBoton);
 
@@ -89,13 +94,29 @@ function agregarAlCarrito(e) {
     } else {
         productoAgregado.cantidad = 1;
         productosEnCarrito.push(productoAgregado);
-    }
+    };
 
     actualizarNumerito();
 
+    Toastify({
+        text: "Producto agregado",
+        duration: 2000,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        style: {
+            background: "rgb(118,118,184)",
+            background: "linear-gradient(17deg, rgba(118,118,184,1) 43%, rgba(0,212,255,1) 100%)",
+          borderRadius: "2rem",
+          textTransform: "uppercase",
+          fontSize: ".7rem"
+        },
+        onClick: function(){} // Callback after click
+      }).showToast();
+
+    
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
 
-};
+}
 
 function actualizarNumerito() {
     let nuevoNumerito = productosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
@@ -133,7 +154,7 @@ function realizarBusquedaConCarga() {
     setTimeout(() => {
         realizarBusqueda();
         ocultarSpinner();
-    }, 2000); // Ejemplo: oculta el elemento de carga después de 2 segundos
+    }, 1500); 
 }
 
 function realizarBusqueda() {
@@ -172,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function mostrarMensajeAlerta() {
-    mensajeAlerta.classList.remove("d-none");
+    mensajeAlerta.classList.remove("d-none"); // Uso d-done porque es con Bootstrap.
 }
 
 function ocultarMensajeAlerta() {

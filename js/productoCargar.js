@@ -36,7 +36,7 @@ const productos = [
     // Combos
     {
         id: "3492",
-        nombre: "DJI Mavic Air 2 Fly More Combo",
+        nombre: "DJI Mavic Air 2 Fly Combo",
         imagen: "./img/productos/combos/3492.jpg",
         categoria: {
             seccion: "Combos",
