@@ -550,10 +550,23 @@ footer h4 {
     .nombre-producto-carrito {
         font-size: 1rem;
     }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .carrito-devolver {
+        padding: 0;   
+    }
+    .carrito-devolver h2 {
+        font-size: 1.3rem;
+    }
+
+    .devolver {
+        font-size: 1.5rem;
+    }
 
 
 }
-
 
 
 
