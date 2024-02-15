@@ -1,3 +1,17 @@
+let productos = [];
+
+
+// Conecto el archivo .json con la funcion fetch
+
+fetch("./js/productosCargar.json")
+.then(response => response.json())
+.then(data => {
+    productos = data;
+    cargarProductos(productos);
+})
+
+
+
 
 //Conectamos con el HTML
 const contenedorProductos = document.querySelector("#contenedor-productos");
@@ -36,7 +50,7 @@ function cargarProductos(productosElegidos) {
     })
     actualizarBotonesAgregar();
 };
-cargarProductos(productos);
+
 
 
 

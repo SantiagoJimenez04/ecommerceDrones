@@ -1,3 +1,4 @@
+
 //Traemos la info que este guardada en localStorage
 let productosEnCarrito = localStorage.getItem("productos-en-carrito");
 productosEnCarrito = JSON.parse(productosEnCarrito);
